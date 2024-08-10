@@ -9,13 +9,23 @@ function getComputerChoice() {
   //chooses rock paper scissors
   
   if(randomNum >= 0 && randomNum <= 0.3333 ){
-  return compMove = "ROCK";
+  compMove = "ROCK";
+  console.log("COMPUTER: "+compMove);
+  return compMove;
+  
   } 
   else if(randomNum > 0.3333 && randomNum <= 0.6666 ){
-  return compMove = "PAPER";
+    compMove = "PAPER";
+    console.log("COMPUTER: "+compMove);
+ 
+    return compMove ;
   } 
   else if(randomNum > 0.6666 && randomNum <= 0.9999 ){
-  return compMove = "SCISSOR";
+     compMove = "SCISSOR"
+    console.log("COMPUTER: "+compMove);
+ 
+    return compMove;
+    
   } 
   
 }
@@ -24,24 +34,27 @@ console.log(getComputerChoice());
 
 //getting player answer
 
-function getPlayerChoice(){
-
-
- let playerMove = prompt("Choose ROCK, PAPER, SCISSOR")
- 
- playerMove = playerMove.toUpperCase();
+function getPlayerChoice(playerMove){
+ //let playerMove = prompt("Choose ROCK, PAPER, SCISSOR")
+ //playerMove = playerMove.toUpperCase();
  
  
  if (playerMove === "ROCK"){
+  console.log("PLAYER: "+playerMove);
    return playerMove;
  } 
   else if (playerMove === "PAPER"){
+  console.log("PLAYER: "+playerMove);
+
    return playerMove;
  } 
 else if (playerMove === "SCISSOR") {
+  console.log("PLAYER: "+playerMove);
+
    return playerMove;
  }
  else{
+  console.log("PLAYER: "+playerMove+" wrong input.");
    alert("The word input "+playerMove+" is not valid. Please try again.");
    
  }
@@ -51,7 +64,7 @@ else if (playerMove === "SCISSOR") {
 
 //comparison of answers; computer vs player
 function playRound(playerMove,computerMove){
-  console.log(playerMove);
+ 
 
     
   if(playerMove === "ROCK" && computerMove === "SCISSOR"){
@@ -73,24 +86,20 @@ function playRound(playerMove,computerMove){
   
 }
 
-
+//scanner
 function promptScanner(){
    let playerMove = prompt("Choose ROCK, PAPER, SCISSOR")
  
  playerMove = playerMove.toUpperCase();
+ return playerMove;
  
 }
 
 const playerMove = getPlayerChoice();
 const computerMove = getComputerChoice();
 
+let scanner = promptScanner();
 
 
-let comScore = 0;
-let playerScore = 0;
-
-
-for(let round = 0; round < 5; round++){
-playRound(playerMove, computerMove);
-playerMove = getPlayerChoice();
-}
+  getPlayerChoice(scanner);
+  playRound(playerMove, computerMove);
