@@ -29,16 +29,19 @@ function getComputerChoice() {
   } 
   
 }
-//just to get the output
-console.log(getComputerChoice());
+
 
 //getting player answer
 
-function getPlayerChoice(playerMove){
+function getPlayerChoice(){
  //let playerMove = prompt("Choose ROCK, PAPER, SCISSOR")
  //playerMove = playerMove.toUpperCase();
  
+ let state= true;
+ let playerMove;
  
+ while(state){
+   playerMove = promptScanner();
  if (playerMove === "ROCK"){
   console.log("PLAYER: "+playerMove);
    return playerMove;
@@ -57,7 +60,8 @@ else if (playerMove === "SCISSOR") {
   console.log("PLAYER: "+playerMove+" wrong input.");
    alert("The word input "+playerMove+" is not valid. Please try again.");
    
- }
+   
+ }}
 }
 
 //console.log("The answer is "+getPlayerChoice());
@@ -89,17 +93,13 @@ function playRound(playerMove,computerMove){
 //scanner
 function promptScanner(){
    let playerMove = prompt("Choose ROCK, PAPER, SCISSOR")
- 
  playerMove = playerMove.toUpperCase();
  return playerMove;
  
 }
+//variable 
 
-const playerMove = getPlayerChoice();
-const computerMove = getComputerChoice();
+ const playerMove = getPlayerChoice();
+ const computerMove = getComputerChoice();
 
-let scanner = promptScanner();
-
-
-  getPlayerChoice(scanner);
-  playRound(playerMove, computerMove);
+ playerRound(computerMove, playerMove);
