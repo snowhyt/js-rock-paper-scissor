@@ -1,3 +1,14 @@
+//variable 
+let computerScore = 0;
+let playerScore = 0;
+//scanner
+function promptScanner(){
+  let playerMove = prompt("Choose ROCK, PAPER, SCISSOR")
+playerMove = playerMove.toUpperCase();
+return playerMove;
+}
+
+
 //Computer answer
 
 function getComputerChoice() {
@@ -59,7 +70,7 @@ else if (playerMove === "SCISSOR") {
  else{
   console.log("PLAYER: "+playerMove+" wrong input.");
    alert("The word input "+playerMove+" is not valid. Please try again.");
-   
+
    
  }}
 }
@@ -67,39 +78,72 @@ else if (playerMove === "SCISSOR") {
 //console.log("The answer is "+getPlayerChoice());
 
 //comparison of answers; computer vs player
-function playRound(playerMove,computerMove){
- 
 
-    
+function playRound(playerMove,computerMove){
+  
+  while(playerScore <= 4 && computerScore <=4){
+  getPlayerChoice();
   if(playerMove === "ROCK" && computerMove === "SCISSOR"){
-    alert("PLAYER WON");
+    playerScore++;
+    console.log("RESULT: PLAYER WON ("+playerScore+" points.)");
+    alert("PLAYER WON ("+playerScore+" points.)");
+    
   } 
-   else if (playerMove === "PAPER" && computerMove === "ROCK") {
-      alert("PLAYER WON");
+   else if (playerMove === "PAPER" && computerMove === "ROCK") {  
+    playerScore++;
+    console.log("RESULT: PLAYER WON ("+playerScore+" points.)");
+    alert("PLAYER WON ("+playerScore+" points.)");
+   
+
 
    }
     else if (playerMove === "SCISSOR" && computerMove === "PAPER") {
-       alert("PLAYER WON");
+    playerScore++;
+    console.log("RESULT: PLAYER WON ("+playerScore+" points.)"); 
+      alert("PLAYER WON ("+playerScore+" points.)");
+    
 
+
+    }
+    //add draw MATCH
+    else if (playerMove === computerMove) {
+      console.log("RESULT: DRAW MATCH ("+computerScore+" points.)");
+      alert("DRAW MATCH("+computerScore+" points.)");
+     
+      
     }
     else{
-         alert("COMPUTER WON");
+      computerScore = computerScore +1;
+    console.log("RESULT: COMPUTER WON ("+computerScore+" points.)");
+         alert("COMPUTER WON("+computerScore+" points.)");
+         
 
     }
-  
+  }
+    checkGameStatus();
   
 }
 
-//scanner
-function promptScanner(){
-   let playerMove = prompt("Choose ROCK, PAPER, SCISSOR")
- playerMove = playerMove.toUpperCase();
- return playerMove;
- 
+  //variable 
+  const playerMove = getPlayerChoice();
+  const computerMove = getComputerChoice();
+//fix playRound mot define
+
+
+    playRound(playerMove, computerMove);
+
+function checkGameStatus(){
+
+  if(playerScore === 5){
+    console.log("Player won!");
+    alert("You Won!");
+  }
+  if(computerScore === 5){
+    console.log("Computer won!");
+    alert("Computer Won!");
+  }
+
 }
-//variable 
 
- const playerMove = getPlayerChoice();
- const computerMove = getComputerChoice();
 
- playerRound(computerMove, playerMove);
+
