@@ -7,6 +7,22 @@ function promptScanner(){
 playerMove = playerMove.toUpperCase();
 return playerMove;
 }
+//button
+const buttons= document.querySelectorAll('button');
+
+buttons.forEach(button =>{
+  button.addEventListener('click', () =>{
+    const userChoice = button.id;
+    const computerChoice = getPlayerChoice();
+  })
+})
+
+
+
+buttons.addEventListener('click', function() {
+   
+});
+
 
 
 //Computer answer
